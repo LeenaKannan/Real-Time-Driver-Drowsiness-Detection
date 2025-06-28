@@ -1,0 +1,14 @@
+# requirements.txt
+tensorflow==2.13.0
+opencv-python==4.8.0.74
+mediapipe==0.10.3
+numpy==1.24.3
+scipy==1.11.1
+scikit-learn==1.3.0
+Pillow==10.0.0
+PyYAML==6.0
+adafruit-circuitpython-ssd1306==2.12.14
+adafruit-blinka==8.20.0
+RPi.GPIO==0.7.1
+board==1.0
+busio==5.3.4
