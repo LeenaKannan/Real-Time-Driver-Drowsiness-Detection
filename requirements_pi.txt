@@ -1,0 +1,10 @@
+# requirements_pi.txt
+opencv-python==4.8.0.74
+mediapipe==0.10.3
+numpy==1.24.3
+PyYAML==6.0
+RPi.GPIO==0.7.1
+adafruit-circuitpython-ssd1306==2.12.14
+adafruit-blinka==8.20.0
+tflite-runtime==2.13.0
+Pillow==10.0.0
