@@ -25,7 +25,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Create necessary directories
-mkdir -p logs models data/raw data/processed
+mkdir -p logs models data/raw data/processed scripts
 
 # Set permissions
 chmod +x scripts/*.sh

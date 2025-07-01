@@ -36,7 +36,7 @@ class DrowsinessDetectionSystem:
         try:
             self.oled_display = OLEDDisplay()
             self.buzzer = BuzzerController(
-                buzzer_pin=self.config['hardware']['buzzer_pin']
+                pin=self.config['hardware']['buzzer_pin']
             )
             self.hardware_available = True
             self.logger.info("Hardware components initialized successfully")

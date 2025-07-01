@@ -1,22 +1,22 @@
 driver-drowsiness-detection/
 ├── src/
 │   ├── models/
-│   │   ├── train_model.py
-│   │   ├── model_architecture.py
-│   │   └── data_preprocessing.py
+│   │   ├── train_model.py (done)
+│   │   ├── model_architecture.py (done)
+│   │   └── data_preprocessing.py (done)
 │   ├── inference/
-│   │   ├── drowsiness_detector.py
-│   │   ├── face_mesh_detector.py
-│   │   └── ear_calculator.py
+│   │   ├── drowsiness_detector.py (done)
+│   │   ├── face_mesh_detector.py (done)
+│   │   └── ear_calculator.py (done)
 │   ├── hardware/
-│   │   ├── oled_display.py
-│   │   ├── buzzer_controller.py
-│   │   └── gpio_manager.py
+│   │   ├── oled_display.py (done)
+│   │   ├── buzzer_controller.py (done)
+│   │   └── gpio_manager.py (done)
 │   ├── utils/
-│   │   ├── config.py
-│   │   ├── logger.py
-│   │   └── video_utils.py
-│   └── main.py
+│   │   ├── config.py (done)
+│   │   ├── logger.py (done)
+│   │   └── video_utils.py (done)
+│   └── main.py (done)
 ├── models/
 │   ├── drowsiness_cnn.h5
 │   └── eye_state_vit.h5
@@ -27,14 +27,14 @@ driver-drowsiness-detection/
 │   ├── schematics/
 │   └── setup_guide.md
 ├── tests/
-│   ├── test_model.py
-│   ├── test_hardware.py
+│   ├── test_model.py (done)
+│   ├── test_hardware.py (done)
 │   └── demo_videos/
 ├── scripts/
-│   ├── setup_environment.sh
-│   ├── install_dependencies.sh
-│   └── autostart_service.sh
-├── requirements.txt
-├── setup.py
-├── config.yaml
-└── README.md
+│   ├── setup_environment.sh (done)
+│   ├── install_dependencies.sh (done)
+│   └── autostart_service.sh (done)
+├── requirements.txt (done)
+├── setup.py (done)
+├── config.yaml (done)
+└── README.md (done)

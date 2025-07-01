@@ -1,6 +1,7 @@
 # config.yaml
 model:
   path: "models/drowsiness_detection_model.h5"
+  vit_path: "models/eye_state_vit.h5"
   type: "cnn" # or "vit"
 
 detection:
@@ -13,7 +14,7 @@ hardware:
   buzzer_pin: 18
   oled_width: 128
   oled_height: 64
-  i2c_address: 0x3C
+  i2c_address: "0x3C"
 
 video:
   width: 640
