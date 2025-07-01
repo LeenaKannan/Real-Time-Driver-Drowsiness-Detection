@@ -1,40 +1,67 @@
-driver-drowsiness-detection/
-├── src/
-│   ├── models/
-│   │   ├── train_model.py (done)
-│   │   ├── model_architecture.py (done)
-│   │   └── data_preprocessing.py (done)
-│   ├── inference/
-│   │   ├── drowsiness_detector.py (done)
-│   │   ├── face_mesh_detector.py (done)
-│   │   └── ear_calculator.py (done)
-│   ├── hardware/
-│   │   ├── oled_display.py (done)
-│   │   ├── buzzer_controller.py (done)
-│   │   └── gpio_manager.py (done)
-│   ├── utils/
-│   │   ├── config.py (done)
-│   │   ├── logger.py (done)
-│   │   └── video_utils.py (done)
-│   └── main.py (done)
+Drowsy-Driver/
+├── .git/
+├── .DS_Store
+├── requirements.txt
+├── config.yaml
+├── setup.py
+├── file-structure.txt
+├── install.sh
 ├── models/
-│   ├── drowsiness_cnn.h5
-│   └── eye_state_vit.h5
+│   └── best_model.keras
+├── scripts/
+│   ├── convert_yawdd_to_2class.py
+│   ├── reduce_dataset.py
+│   ├── convert_to_tfrecord.py
+│   ├── preprocess_datasets.py
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── setup_environment.sh
+│   ├── autostart_service.sh
+│   └── install_dependencies.sh
 ├── data/
 │   ├── processed/
-│   └── raw/
-├── hardware/
-│   ├── schematics/
-│   └── setup_guide.md
+│   │   ├── yawdd_processed_2class.npz
+│   │   ├── mrl_processed_reduced.npz
+│   │   ├── yawdd_processed.npz
+│   │   └── mrl_processed.npz
+│   ├── raw/
+│   │   ├── YawDD_dataset/
+│   │   ├── MRL_dataset/
+│   │   └── YawDD_dataset_videos/
+│   ├── __init__.py
+│   ├── .DS_Store
+│   └── dataset.txt
+├── src/
+│   ├── __pycache__/
+│   ├── models/
+│   │   ├── train_model.py
+│   │   ├── __pycache__/
+│   │   ├── data_preprocessing.py
+│   │   ├── __init__.py
+│   │   └── model_architecture.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── logger.py
+│   │   ├── video_utils.py
+│   │   └── config.py
+│   ├── hardware/
+│   │   ├── __init__.py
+│   │   ├── gpio_manager.py
+│   │   ├── buzzer_controller.py
+│   │   └── oled_display.py
+│   ├── inference/
+│   │   ├── __init__.py
+│   │   ├── ear_calculator.py
+│   │   ├── face_mesh_detector.py
+│   │   └── drowsiness_detector.py
+│   ├── __init__.py
+│   └── main.py
 ├── tests/
-│   ├── test_model.py (done)
-│   ├── test_hardware.py (done)
-│   └── demo_videos/
-├── scripts/
-│   ├── setup_environment.sh (done)
-│   ├── install_dependencies.sh (done)
-│   └── autostart_service.sh (done)
-├── requirements.txt (done)
-├── setup.py (done)
-├── config.yaml (done)
-└── README.md (done)
+│   ├── __init__.py
+│   ├── test_hardware.py
+│   ├── test_model.py
+│   └── test_system.py
+└── hardware/
+    ├── __init__.py
+    ├── setup_guide.md
+    └── schematics/
