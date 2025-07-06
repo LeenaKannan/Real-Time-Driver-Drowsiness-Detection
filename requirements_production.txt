@@ -1,0 +1,21 @@
+# requirements_production.txt
+# Core ML libraries
+tensorflow-lite==2.13.0
+opencv-python==4.8.0.74
+mediapipe==0.10.3
+numpy==1.24.3
+
+# Hardware libraries
+RPi.GPIO==0.7.1
+adafruit-circuitpython-ssd1306==2.12.14
+adafruit-blinka==8.20.0
+
+# Configuration and utilities
+PyYAML==6.0
+python-dotenv==1.0.0
+
+# Audio support
+pygame==2.5.2
+
+# System utilities
+psutil==5.9.5
