@@ -1,68 +1,66 @@
 Drowsy-Driver/
 ├── .git/
 ├── .DS_Store
-├── requirements.txt
+├── .gitignore
+├── LICENSE
 ├── config.yaml
-├── setup.py
 ├── file-structure.txt
 ├── install.sh
-├── models/
-│   └── best_model.keras
-├── scripts/
-│   ├── convert_yawdd_to_2class.py
-│   ├── reduce_dataset.py
-│   ├── convert_to_tfrecord.py
-│   ├── preprocess_datasets.py
-│   ├── export_lightweight_model.py
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── setup_environment.sh
-│   ├── autostart_service.sh
-│   └── install_dependencies.sh
+├── requirements.txt
+├── requirements_pi.txt
+├── setup.py
 ├── data/
-│   ├── processed/
-│   │   ├── yawdd_processed_2class.npz
-│   │   ├── mrl_processed_reduced.npz
-│   │   ├── yawdd_processed.npz
-│   │   └── mrl_processed.npz
-│   ├── raw/
-│   │   ├── YawDD_dataset/
-│   │   ├── MRL_dataset/
-│   │   └── YawDD_dataset_videos/
-│   ├── __init__.py
 │   ├── .DS_Store
-│   └── dataset.txt
-├── src/
+│   ├── __init__.py
+│   ├── dataset.txt
+│   ├── raw/
+│   │   ├── .DS_Store
+│   │   ├── MRL_dataset/
+│   │   └── YawDD_dataset/
+│   └── processed/
+│       ├── mrl_processed.npz
+│       ├── mrl_processed_reduced.npz
+│       ├── yawdd_processed.npz
+│       └── yawdd_processed_2class.npz
+├── hardware/
+│   ├── __init__.py
+│   ├── setup_guide.md
+│   └── schematics/
+├── models/
+├── scripts/
+│   ├── __init__.py
 │   ├── __pycache__/
-│   ├── models/
-│   │   ├── train_model.py
-│   │   ├── __pycache__/
-│   │   ├── data_preprocessing.py
-│   │   ├── __init__.py
-│   │   └── model_architecture.py
-│   ├── utils/
-│   │   ├── __init__.py
-│   │   ├── logger.py
-│   │   ├── video_utils.py
-│   │   └── config.py
+│   ├── balance_dataset.py
+│   ├── collect_balanced_data.py
+│   ├── export_lightweight_model.py
+│   ├── export_model.py
+│   ├── preprocess_datasets.py
+│   └── train_on_colab_a100.py
+├── src/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── main_complete.py
 │   ├── hardware/
 │   │   ├── __init__.py
-│   │   ├── gpio_manager.py
+│   │   ├── advanced_alert_system.py
 │   │   ├── buzzer_controller.py
 │   │   └── oled_display.py
 │   ├── inference/
 │   │   ├── __init__.py
-│   │   ├── ear_calculator.py
-│   │   ├── face_mesh_detector.py
-│   │   └── drowsiness_detector.py
-│   ├── __init__.py
-│   └── main.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_hardware.py
-│   ├── test_model.py
-│   └── test_system.py
-└── hardware/
+│   │   ├── drowsiness_detector.py
+│   │   └── pi_camera_inference.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── data_preprocessing.py
+│   │   └── model_architecture.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── config.py
+│       ├── logger.py
+│       └── video_utils.py
+└── tests/
     ├── __init__.py
-    ├── setup_guide.md
-    └── schematics/
+    ├── test_hardware.py
+    ├── test_model.py
+    └── test_system.py
