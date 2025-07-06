@@ -1,0 +1,21 @@
+1. Recommended Datasets
+Primary Dataset: MRL Eye Dataset
+
+Download: http://mrl.cs.vsb.cz/eyedataset
+Size: 84,898 samples
+Quality: High-resolution eye images (384×288 pixels)
+Classes: Open/Closed eyes with perfect labeling
+Advantage: Specifically designed for eye state classification with 99%+ accuracy potential
+
+Secondary Dataset: YawDD (Yawning Detection Dataset)
+
+Download: http://www.site.uottawa.ca/~shervin/data/
+Content: 322 videos, 29 subjects
+Classes: Normal, Yawning, Talking
+Use: Yawn detection enhancement
+
+Tertiary Dataset: DROZY Database
+
+Download: https://sites.google.com/view/drozydatabase/
+Content: Real drowsiness scenarios
+Subjects: 14 participants in actual drowsy states
