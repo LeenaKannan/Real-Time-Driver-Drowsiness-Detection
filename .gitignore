@@ -1,0 +1,133 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+drowsiness_env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large data files and models
+data/raw/
+data/processed/
+*.npz
+*.npy
+*.h5
+*.keras
+*.hdf5
+*.pkl
+*.pickle
+*.avi
+*.mp4
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+*.m4v
+*.3gp
+*.ogv
+*.ts
+*.mts
+*.m2ts
+
+# Model files (keep only lightweight versions)
+models/*.keras
+models/*.h5
+models/*.hdf5
+models/*.pkl
+models/*.pickle
+models/*.pb
+models/*.onnx
+models/*.tflite
+
+# Keep only lightweight model files
+!models/*_lightweight.*
+!models/*_small.*
+
+# Logs
+logs/
+*.log
+*.out
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Hardware schematics (if they're large)
+hardware/schematics/*.step
+hardware/schematics/*.stl
+hardware/schematics/*.obj
+hardware/schematics/*.fbx
+hardware/schematics/*.blend
+
+# Keep only documentation files in hardware
+!hardware/schematics/*.md
+!hardware/schematics/*.txt
+!hardware/schematics/*.pdf 
