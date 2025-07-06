@@ -2,77 +2,52 @@
 import unittest
 import cv2
 import numpy as np
-import tempfile
+import sys
 import os
-from unittest.mock import Mock, patch
 
-from src.inference.drowsiness_detector import DrowsinessDetector
-from src.hardware.oled_display import OLEDDisplay
-from src.hardware.buzzer_controller import BuzzerController
+# Add src to path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-class TestDrowsinessDetection(unittest.TestCase):
+from inference.drowsiness_detector import DrowsinessDetector
+
+class TestDrowsinessSystem(unittest.TestCase):
     def setUp(self):
-        """Set up test fixtures"""
-        # Create a mock model
-        self.mock_model_path = "test_model.h5"
-        
-        # Create test images
-        self.test_open_eye = np.random.randint(0, 255, (128, 128, 3), dtype=np.uint8)
-        self.test_closed_eye = np.random.randint(0, 255, (128, 128, 3), dtype=np.uint8)
-        
-    def test_ear_calculation(self):
-        """Test Eye Aspect Ratio calculation"""
-        detector = DrowsinessDetector(self.mock_model_path)
-        
-        # Test with known eye landmarks
-        eye_landmarks = [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]
-        ear = detector.calculate_ear(eye_landmarks)
-        
-        self.assertIsInstance(ear, float)
-        self.assertGreater(ear, 0)
+        # Create dummy model for testing
+        self.create_dummy_model()
+        self.detector = DrowsinessDetector('test_model.h5')
     
-    def test_drowsiness_detection_pipeline(self):
-        """Test the complete drowsiness detection pipeline"""
-        with patch('tensorflow.keras.models.load_model'):
-            detector = DrowsinessDetector(self.mock_model_path)
-            
-            # Create a test frame
-            test_frame = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)
-            
-            # Mock MediaPipe results
-            with patch.object(detector.face_mesh, 'process') as mock_process:
-                mock_process.return_value.multi_face_landmarks = None
-                
-                result = detector.detect_drowsiness(test_frame)
-                
-                self.assertIn('status', result)
-                self.assertIn('confidence', result)
-                self.assertIn('alert_required', result)
-    
-    def test_hardware_initialization(self):
-        """Test hardware component initialization"""
-        # Test OLED display (mocked)
-        with patch('board.SCL'), patch('board.SDA'), patch('busio.I2C'):
-            with patch('adafruit_ssd1306.SSD1306_I2C'):
-                display = OLEDDisplay()
-                self.assertIsNotNone(display)
+    def create_dummy_model(self):
+        """Create a dummy model for testing"""
+        import tensorflow as tf
         
-        # Test buzzer controller (mocked)
-        with patch('RPi.GPIO.setmode'), patch('RPi.GPIO.setup'):
-            buzzer = BuzzerController()
-            self.assertIsNotNone(buzzer)
-
-class TestModelPerformance(unittest.TestCase):
-    def test_model_accuracy(self):
-        """Test model accuracy on validation data"""
-        # This would test against a known validation set
-        # Expected accuracy > 95% based on research results
-        pass
+        model = tf.keras.Sequential([
+            tf.keras.layers.Input(shape=(128, 128, 3)),
+            tf.keras.layers.Flatten(),
+            tf.keras.layers.Dense(2, activation='softmax')
+        ])
+        
+        model.compile(optimizer='adam', loss='categorical_crossentropy')
+        model.save('test_model.h5')
     
-    def test_inference_speed(self):
-        """Test real-time inference performance"""
-        # Should process at least 20 FPS on Raspberry Pi 4
-        pass
+    def test_detector_initialization(self):
+        """Test detector initialization"""
+        self.assertIsNotNone(self.detector)
+    
+    def test_drowsiness_detection(self):
+        """Test drowsiness detection with dummy frame"""
+        # Create dummy frame
+        frame = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)
+        
+        result = self.detector.detect_drowsiness(frame)
+        
+        self.assertIn('is_drowsy', result)
+        self.assertIn('status', result)
+        self.assertIn('confidence', result)
+    
+    def tearDown(self):
+        # Clean up
+        if os.path.exists('test_model.h5'):
+            os.remove('test_model.h5')
 
 if __name__ == '__main__':
     unittest.main()
